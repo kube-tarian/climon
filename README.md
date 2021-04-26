@@ -12,3 +12,5 @@ Plug & Play is the main frame of Climon's design.
 Climon's K8s CRDs & Operators are used to create, install, patch, update, upgrade and do operations management. 
 You need K8s cluster to run Climon and the monitoring stack you want using Climon. 
 
+### Architecture
+![Arch. Diagram](https://raw.githubusercontent.com/devopstoday11/climon/main/Climon-Monitoring-stack.png)

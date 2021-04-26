@@ -1,5 +1,5 @@
 # Climon
-Distributed monitoring solution for cloud-native with Authentication, Authorization, TLS, Users, Roles, Groups and Tenant management, Interfaces to setup & visualize alerts, Self-Healing, Self-Operating, and more using Prometheus, Grafana, Loki, Promtail, FluentBit, Tempo, Jaeger Tracing, Operator SDK, Cortex, Prometheus Operator, VictoriaMetrics, EFK, Cloud Providers' Storage, Cassandra, etc. 
+Distributed monitoring solution for cloud-native with Authentication, Authorization, TLS, Users, Roles, Groups and Tenant management, Interfaces to setup & visualize alerts, Self-Healing, Self-Operating, and more using Prometheus, Grafana, Loki, Promtail, FluentBit, Tempo, Jaeger Tracing, Operator SDK, Cortex, Prometheus Operator, VictoriaMetrics, EFK, Cloud Providers' Storage, Cassandra, openEBS, Longhorn, Rancher, K3s, etc. 
 
 End-Users can cherry pick to build their favorite Monitoring Stack and maintain the stack easily. 
 

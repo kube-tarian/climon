@@ -3,6 +3,8 @@ Distributed monitoring solution for cloud-native with Authentication, Authorizat
 
 End-Users can cherry pick to build their favorite Monitoring Stack and maintain the stack easily. 
 
+Yes, this will remain 100% open-source and driven by open-source community. 
+
 #### What's with the name:
 Click Monitoring -> 1st three letters of both the words = CliMon (Climon). 
 And when we saw the meaning for the person name Climon we like it when we translate the meaning into technology relevant meaning. 

@@ -17,4 +17,4 @@ Climon's K8s CRDs & Operators are used to create, install, patch, update, upgrad
 You need K8s cluster to run Climon and the monitoring stack you want using Climon. 
 
 ### Architecture:
-![Arch. Diagram](https://raw.githubusercontent.com/devopstoday11/climon/main/Climon-Monitoring-stack.png)
+![Arch. Diagram](https://raw.githubusercontent.com/devopstoday11/climon/main/Climon-Monitoring-stack-image.png)

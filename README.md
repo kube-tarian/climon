@@ -15,6 +15,8 @@ Here is the reference babynology.com/name/climon-m.html .
 Plug & Play is the main frame of Climon's design. 
 Climon's K8s CRDs & Operators are used to create, install, patch, update, upgrade and do operations management. 
 You need K8s cluster to run Climon and the monitoring stack you want using Climon. 
+Climon's CRDs & Operators uses the operators/helm charts/yaml-files of the tools which users cherry pick to setup their favorite monitoring stack. 
+The Main purpose of Climon's CRDs & Operators is to make sure all the deployed tools are having automated https URLs and self-healing enabled and to configure Alerts & dashboards for the cherry picked tools via Climon's UI. 
 
 ### Architecture:
 ![Arch. Diagram](https://raw.githubusercontent.com/devopstoday11/climon/main/Climon-Monitoring-stack-image.png)

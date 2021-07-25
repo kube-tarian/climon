@@ -1,0 +1,19 @@
+domain: climon.com
+layout:
+- go.kubebuilder.io/v2
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+projectName: climon-operator
+repo: github.com/climon-operator
+resources:
+- api:
+    crdVersion: v1beta1
+    namespaced: true
+  controller: true
+  domain: climon.com
+  group: monitoring
+  kind: PrometheusDeployment
+  path: github.com/climon-operator/api/v1alpha1
+  version: v1alpha1
+version: "3"

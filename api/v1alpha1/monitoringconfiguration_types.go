@@ -23,30 +23,33 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// PrometheusDeploymentSpec defines the desired state of PrometheusDeployment
-type PrometheusDeploymentSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+// MonitoringConfigurationSpec defines the desired state of MonitoringConfiguration
+type MonitoringConfigurationSpec struct {
+	//Defines the apps to be installed
+	Apps []App `json:"spec,apps"`
+	//Name of the monitoring configuration
 	Name string `json:"name"`
-	//Defines the Prometheus chart details
-	Prometheus Prometheus `json:"prometheus,omitempty"`
 	//Last modifier of the custom resource
 	LastModifier string `json:"last_modifier"`
-	//Metadata of the prometheusdeployment
+	//Metadata of the MonitoringConfiguration
 	Metadata string `json:"metadata,omitempty"`
 }
 
-type Prometheus struct {
-	//Specifies if the prometheus chart is to be installed. Assumed to be true if not specified
-	Enabled bool `json:"enabled",omitempty"`
-	//Version of the chart to be installed
-	Version string `json:"version,omitempty"`
-	//Specifies the repo from where prometheus chart is to be used
+type App struct {
+	//Name of the application
+	Name string `json:"name"`
+	//Repo from where chart needs to be downloaded
 	Repo string `json:"repo"`
+	//Chart name which needs to be installed
+	ChartName string `json:"chartName"`
+	//Version of the chart
+	ChartVersion string `json:"chartVersion"`
+	//Namespace of installation
+	Namespace string `json:"namespace"`
 }
 
-// PrometheusDeploymentStatus defines the observed state of PrometheusDeployment
-type PrometheusDeploymentStatus struct {
+// MonitoringConfigurationStatus defines the observed state of MonitoringConfiguration
+type MonitoringConfigurationStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
@@ -54,24 +57,24 @@ type PrometheusDeploymentStatus struct {
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
-// PrometheusDeployment is the Schema for the prometheusdeployments API
-type PrometheusDeployment struct {
+// MonitoringConfiguration is the Schema for the monitoringconfigurations API
+type MonitoringConfiguration struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   PrometheusDeploymentSpec   `json:"spec,omitempty"`
-	Status PrometheusDeploymentStatus `json:"status,omitempty"`
+	Spec   MonitoringConfigurationSpec   `json:"spec,omitempty"`
+	Status MonitoringConfigurationStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
-// PrometheusDeploymentList contains a list of PrometheusDeployment
-type PrometheusDeploymentList struct {
+// MonitoringConfigurationList contains a list of MonitoringConfiguration
+type MonitoringConfigurationList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []PrometheusDeployment `json:"items"`
+	Items           []MonitoringConfiguration `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&PrometheusDeployment{}, &PrometheusDeploymentList{})
+	SchemeBuilder.Register(&MonitoringConfiguration{}, &MonitoringConfigurationList{})
 }

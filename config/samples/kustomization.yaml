@@ -1,4 +1,4 @@
 ## Append samples you want in your CSV to this file as resources ##
 resources:
-- monitoring_v1alpha1_prometheusdeployment.yaml
+- monitoring_v1alpha1_monitoringconfiguration.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples

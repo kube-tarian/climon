@@ -6,20 +6,20 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.3.0
   creationTimestamp: null
-  name: prometheusdeployments.monitoring.climon.com
+  name: monitoringconfigurations.monitoring.soi.dev
 spec:
-  group: monitoring.climon.com
+  group: monitoring.soi.dev
   names:
-    kind: PrometheusDeployment
-    listKind: PrometheusDeploymentList
-    plural: prometheusdeployments
-    singular: prometheusdeployment
+    kind: MonitoringConfiguration
+    listKind: MonitoringConfigurationList
+    plural: monitoringconfigurations
+    singular: monitoringconfiguration
   scope: Namespaced
   subresources:
     status: {}
   validation:
     openAPIV3Schema:
-      description: PrometheusDeployment is the Schema for the prometheusdeployments
+      description: MonitoringConfiguration is the Schema for the monitoringconfigurations
         API
       properties:
         apiVersion:
@@ -35,42 +35,52 @@ spec:
         metadata:
           type: object
         spec:
-          description: PrometheusDeploymentSpec defines the desired state of PrometheusDeployment
+          description: MonitoringConfigurationSpec defines the desired state of MonitoringConfiguration
           properties:
             last_modifier:
               description: Last modifier of the custom resource
               type: string
             metadata:
-              description: Metadata of the prometheusdeployment
+              description: Metadata of the MonitoringConfiguration
               type: string
             name:
-              description: 'INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-                Important: Run "make" to regenerate code after modifying this file'
+              description: Name of the monitoring configuration
               type: string
-            prometheus:
-              description: Defines the Prometheus chart details
-              properties:
-                enabled:
-                  description: Specifies if the prometheus chart is to be installed.
-                    Assumed to be true if not specified
-                  type: boolean
-                repo:
-                  description: Specifies the repo from where prometheus chart is to
-                    be used
-                  type: string
-                version:
-                  description: Version of the chart to be installed
-                  type: string
-              required:
-              - enabled
-              - repo
-              type: object
+            spec:
+              description: Defines the apps to be installed
+              items:
+                properties:
+                  chartName:
+                    description: Chart name which needs to be installed
+                    type: string
+                  chartVersion:
+                    description: Version of the chart
+                    type: string
+                  name:
+                    description: Name of the application
+                    type: string
+                  namespace:
+                    description: Namespace of installation
+                    type: string
+                  repo:
+                    description: Repo from where chart needs to be downloaded
+                    type: string
+                required:
+                - chartName
+                - chartVersion
+                - name
+                - namespace
+                - repo
+                type: object
+              type: array
           required:
           - last_modifier
           - name
+          - spec
           type: object
         status:
-          description: PrometheusDeploymentStatus defines the observed state of PrometheusDeployment
+          description: MonitoringConfigurationStatus defines the observed state of
+            MonitoringConfiguration
           type: object
       type: object
   version: v1alpha1

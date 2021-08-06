@@ -1,4 +1,4 @@
-module github.com/climon-operator
+module github.com/monitoring
 
 go 1.13
 

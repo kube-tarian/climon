@@ -1,22 +1,16 @@
-
----
+# permissions for end users to view monitoringconfigurations.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  creationTimestamp: null
-  name: manager-role
+  name: monitoringconfiguration-viewer-role
 rules:
 - apiGroups:
   - monitoring.soi.dev
   resources:
   - monitoringconfigurations
   verbs:
-  - create
-  - delete
   - get
   - list
-  - patch
-  - update
   - watch
 - apiGroups:
   - monitoring.soi.dev
@@ -24,5 +18,3 @@ rules:
   - monitoringconfigurations/status
   verbs:
   - get
-  - patch
-  - update

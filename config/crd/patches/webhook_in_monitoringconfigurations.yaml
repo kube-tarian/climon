@@ -3,7 +3,7 @@
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
-  name: prometheusdeployments.monitoring.climon.com
+  name: monitoringconfigurations.monitoring.soi.dev
 spec:
   conversion:
     strategy: Webhook

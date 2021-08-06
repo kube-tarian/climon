@@ -27,8 +27,8 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	monitoringv1alpha1 "github.com/climon-operator/api/v1alpha1"
-	"github.com/climon-operator/controllers"
+	monitoringv1alpha1 "github.com/monitoring/api/v1alpha1"
+	"github.com/monitoring/controllers"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -60,19 +60,19 @@ func main() {
 		MetricsBindAddress: metricsAddr,
 		Port:               9443,
 		LeaderElection:     enableLeaderElection,
-		LeaderElectionID:   "4b3e2a21.climon.com",
+		LeaderElectionID:   "f51d8d74.soi.dev",
 	})
 	if err != nil {
 		setupLog.Error(err, "unable to start manager")
 		os.Exit(1)
 	}
 
-	if err = (&controllers.PrometheusDeploymentReconciler{
+	if err = (&controllers.MonitoringConfigurationReconciler{
 		Client: mgr.GetClient(),
-		Log:    ctrl.Log.WithName("controllers").WithName("PrometheusDeployment"),
+		Log:    ctrl.Log.WithName("controllers").WithName("MonitoringConfiguration"),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create controller", "controller", "PrometheusDeployment")
+		setupLog.Error(err, "unable to create controller", "controller", "MonitoringConfiguration")
 		os.Exit(1)
 	}
 	//+kubebuilder:scaffold:builder

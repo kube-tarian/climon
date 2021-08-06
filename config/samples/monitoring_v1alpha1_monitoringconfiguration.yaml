@@ -1,0 +1,7 @@
+apiVersion: monitoring.soi.dev/v1alpha1
+kind: MonitoringConfiguration
+metadata:
+  name: monitoringconfiguration-sample
+spec:
+  # Add fields here
+  foo: bar

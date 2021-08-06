@@ -1,13 +1,13 @@
-# permissions for end users to edit prometheusdeployments.
+# permissions for end users to edit monitoringconfigurations.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: prometheusdeployment-editor-role
+  name: monitoringconfiguration-editor-role
 rules:
 - apiGroups:
-  - monitoring.climon.com
+  - monitoring.soi.dev
   resources:
-  - prometheusdeployments
+  - monitoringconfigurations
   verbs:
   - create
   - delete
@@ -17,8 +17,8 @@ rules:
   - update
   - watch
 - apiGroups:
-  - monitoring.climon.com
+  - monitoring.soi.dev
   resources:
-  - prometheusdeployments/status
+  - monitoringconfigurations/status
   verbs:
   - get

@@ -1,0 +1,9 @@
+apiVersion: v1alpha1
+description: Climon CRD and controller helm chart for Kubernetes.
+keywords:
+- kubernetes
+- monitoring
+name: climon-operator
+sources:
+- https://github.com/devopstoday11/climon
+version: 1.0.0-dev1

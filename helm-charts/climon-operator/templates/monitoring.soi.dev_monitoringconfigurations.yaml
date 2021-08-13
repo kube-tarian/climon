@@ -1,0 +1,96 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.3.0
+  creationTimestamp: null
+  name: monitoringconfigurations.monitoring.soi.dev
+spec:
+  group: monitoring.soi.dev
+  names:
+    kind: MonitoringConfiguration
+    listKind: MonitoringConfigurationList
+    plural: monitoringconfigurations
+    singular: monitoringconfiguration
+  scope: Namespaced
+  subresources:
+    status: {}
+  validation:
+    openAPIV3Schema:
+      description: MonitoringConfiguration is the Schema for the monitoringconfigurations
+        API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: MonitoringConfigurationSpec defines the desired state of MonitoringConfiguration
+          properties:
+            last_modifier:
+              description: Last modifier of the custom resource
+              type: string
+            metadata:
+              description: Metadata of the MonitoringConfiguration
+              type: string
+            name:
+              description: Name of the monitoring configuration
+              type: string
+            spec:
+              description: Defines the apps to be installed
+              items:
+                properties:
+                  chartName:
+                    description: Chart name which needs to be installed
+                    type: string
+                  chartVersion:
+                    description: Version of the chart
+                    type: string
+                  name:
+                    description: Name of the application
+                    type: string
+                  namespace:
+                    description: Namespace of installation
+                    type: string
+                  repo:
+                    description: Repo from where chart needs to be downloaded
+                    type: string
+                required:
+                - chartName
+                - chartVersion
+                - name
+                - namespace
+                - repo
+                type: object
+              type: array
+          required:
+          - last_modifier
+          - name
+          - spec
+          type: object
+        status:
+          description: MonitoringConfigurationStatus defines the observed state of
+            MonitoringConfiguration
+          type: object
+      type: object
+  version: v1alpha1
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

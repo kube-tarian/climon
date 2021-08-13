@@ -38,7 +38,7 @@ const (
 
 // MonitoringConfigurationReconciler reconciles a MonitoringConfiguration object
 type MonitoringConfigurationReconciler struct {
-	client         client.Client
+	Client         client.Client
 	Log            logr.Logger
 	Scheme         *runtime.Scheme
 	monConfContext *mcontext.MonConfContext
@@ -78,7 +78,7 @@ func (r *MonitoringConfigurationReconciler) Reconcile(req ctrl.Request) (ctrl.Re
 	if instance.GetDeletionTimestamp().IsZero() {
 		if !containsString(instance.ObjectMeta.Finalizers, myFinalizerName) {
 			instance.ObjectMeta.Finalizers = append(instance.ObjectMeta.Finalizers, myFinalizerName)
-			if err := r.client.Update(context.Background(), instance); err != nil {
+			if err := r.Client.Update(context.Background(), instance); err != nil {
 				return reconcile.Result{RequeueAfter: requeueDelay}, err
 			}
 		}
@@ -96,7 +96,7 @@ func (r *MonitoringConfigurationReconciler) Reconcile(req ctrl.Request) (ctrl.Re
 
 			// remove our finalizer from the list and update it.
 			instance.ObjectMeta.Finalizers = removeString(instance.ObjectMeta.Finalizers, myFinalizerName)
-			if err := r.client.Update(context.Background(), instance); err != nil {
+			if err := r.Client.Update(context.Background(), instance); err != nil {
 				return reconcile.Result{RequeueAfter: requeueDelay}, err
 			}
 		}

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: climon-operator
+    app.kubernetes.io/instance: '{{ .Release.Name }}'
+    app.kubernetes.io/name: '{{ .Release.Name }}'
+    app.kubernetes.io/version: '{{ .Chart.Version }}'
+    control-plane: climon-operator
+  name: climon-operator
+  namespace: '{{ .Release.Namespace }}'
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        sidecar.istio.io/inject: 'false'
+      labels:
+        app: climon-operator
+        app.kubernetes.io/instance: '{{ .Release.Name }}'
+        app.kubernetes.io/name: '{{ .Release.Name }}'
+        app.kubernetes.io/version: '{{ .Chart.Version }}'
+        control-plane: climon-operator
+    spec:
+      containers:
+      - command:
+        - /manager
+        image: '{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}'
+        imagePullPolicy: '{{ .Values.image.pullPolicy }}'
+        name: manager
+        ports:
+        - containerPort: 8080
+          name: metrics
+          protocol: TCP
+        resources:
+          limits:
+            cpu: '{{ .Values.manager.cpuLimit }}'
+            memory: '{{ .Values.manager.memoryLimit }}'
+          requests:
+            cpu: '{{ .Values.manager.cpuRequest }}'
+            memory: '{{ .Values.manager.memoryRequest }}'
+      securityContext:
+        runAsUser: {{ .Values.managerUserID }}
+      serviceAccountName: '{{ .Values.serviceAccount.name }}'
+      terminationGracePeriodSeconds: 10

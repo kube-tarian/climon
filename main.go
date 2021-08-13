@@ -29,7 +29,6 @@ import (
 
 	monitoringv1alpha1 "github.com/monitoring/api/v1alpha1"
 	"github.com/monitoring/controllers"
-	//+kubebuilder:scaffold:imports
 )
 
 var (

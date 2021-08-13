@@ -2,6 +2,7 @@ package mcontext
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -36,7 +37,6 @@ func NewPrometheusDeploymentContext() *MonConfContext {
 	if monConfContext == nil {
 		monConfContext = &MonConfContext{client: &http.Client{Timeout: 20 * time.Second}}
 	}
-
 	return monConfContext
 }
 
@@ -59,10 +59,12 @@ func (p *MonConfContext) HandleEvent(event string, instance *v1alpha1.Monitoring
 }
 
 func (p *MonConfContext) CreateMonitoringConfiguration(promDep *MonConf) error {
+	fmt.Println("CRD has been created")
 	return nil
 }
 
 func (p *MonConfContext) UpdateMonitoringConfiguration(promDep *MonConf) error {
+	fmt.Println("CRD has been updated")
 	return nil
 }
 
@@ -71,6 +73,7 @@ func (p *MonConfContext) checkIfMonitoringConfExists(name string) bool {
 }
 
 func (p *MonConfContext) DeleteMonitoringConfiguration() error {
+	fmt.Println("CRD has been deleted")
 	return nil
 }
 

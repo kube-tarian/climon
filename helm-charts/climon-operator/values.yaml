@@ -1,0 +1,26 @@
+# # Climon operator
+# Below are the default values when installing climon operator
+
+# Please set enabled = false in case RBAC is managed by admin
+rbac:
+  enabled: true
+
+# Name of the service account to be used for deployment
+serviceAccount:
+  name: climon-operator
+
+image:
+  registry: docker.io
+  repository: narasago
+  tag: v1.0
+  pullPolicy: IfNotPresent
+
+manager:
+  cpuLimit: 500m
+  cpuRequest: 100m
+  memoryLimit: 300Mi
+  memoryRequest: 200Mi
+
+#Runtime user to be used for manager/operator
+managerUserID: 8888
+

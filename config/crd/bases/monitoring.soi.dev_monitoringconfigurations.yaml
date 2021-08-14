@@ -37,16 +37,7 @@ spec:
         spec:
           description: MonitoringConfigurationSpec defines the desired state of MonitoringConfiguration
           properties:
-            last_modifier:
-              description: Last modifier of the custom resource
-              type: string
-            metadata:
-              description: Metadata of the MonitoringConfiguration
-              type: string
-            name:
-              description: Name of the monitoring configuration
-              type: string
-            spec:
+            apps:
               description: Defines the apps to be installed
               items:
                 properties:
@@ -73,10 +64,18 @@ spec:
                 - repo
                 type: object
               type: array
+            last_modifier:
+              description: Last modifier of the custom resource
+              type: string
+            metadata:
+              description: Metadata of the MonitoringConfiguration
+              type: string
+            name:
+              description: Name of the monitoring configuration
+              type: string
           required:
-          - last_modifier
+          - apps
           - name
-          - spec
           type: object
         status:
           description: MonitoringConfigurationStatus defines the observed state of

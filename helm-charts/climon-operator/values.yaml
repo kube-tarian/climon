@@ -11,7 +11,7 @@ serviceAccount:
 
 image:
   registry: docker.io
-  repository: narasago
+  repository: narasago/climon-controller
   tag: v1.0
   pullPolicy: IfNotPresent
 

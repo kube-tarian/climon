@@ -57,11 +57,11 @@ type MonitoringConfigurationReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.6.4/pkg/reconcile
 func (r *MonitoringConfigurationReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
-	_ = context.Background()
-	_ = r.Log.WithValues("monitoringconfiguration", req.NamespacedName)
+	ctx := context.Background()
+	log := r.Log.WithValues("monitoringconfiguration", req.NamespacedName)
 
 	instance := &monitoringv1alpha1.MonitoringConfiguration{}
-	err := r.Client.Get(context.TODO(), req.NamespacedName, instance)
+	err := r.Client.Get(ctx, req.NamespacedName, instance)
 
 	if err != nil {
 		if k8sErrors.IsNotFound(err) {
@@ -86,7 +86,7 @@ func (r *MonitoringConfigurationReconciler) Reconcile(req ctrl.Request) (ctrl.Re
 		//The object is being deleted
 		if containsString(instance.ObjectMeta.Finalizers, myFinalizerName) {
 			// Our finalizer is present, so lets handled any external dependency
-			r.Log.Info("Handle delete event for %v, MonitoringConfiguration Name: %v", instance.Name, instance.Spec.Name)
+			log.Info("Handle delete event", "for MonitoringConfiguration: ", instance.Spec.Name)
 
 			if err := r.monConfContext.HandleEvent("delete", instance); err != nil {
 				// if fail to delete the external dependency here, return with error
@@ -105,11 +105,11 @@ func (r *MonitoringConfigurationReconciler) Reconcile(req ctrl.Request) (ctrl.Re
 	}
 
 	//Do this in case of create or an update event
-	r.Log.Info("Update or CreateOrUpdate event occured for %+v, MonitoringConfiguration Name: %v", instance, instance.Spec.Name)
+	log.Info("Update or CreateOrUpdate event occured", " MonitoringConfiguration: ", instance.Spec.Name)
 
 	err = r.monConfContext.HandleEvent("createOrUpdate", instance)
 	if err != nil {
-		r.Log.Error(err, "Error reconciling crd during creation or updation")
+		log.Error(err, "Error reconciling crd during creation or updation")
 		return reconcile.Result{RequeueAfter: requeueDelay}, err
 	}
 

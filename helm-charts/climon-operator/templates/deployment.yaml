@@ -11,6 +11,13 @@ metadata:
   namespace: '{{ .Release.Namespace }}'
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: climon-operator
+      app.kubernetes.io/instance: '{{ .Release.Name }}'
+      app.kubernetes.io/name: '{{ .Release.Name }}'
+      app.kubernetes.io/version: '{{ .Chart.Version }}'
+      control-plane: climon-operator
   template:
     metadata:
       annotations:

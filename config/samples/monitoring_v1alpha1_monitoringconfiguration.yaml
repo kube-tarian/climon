@@ -3,5 +3,11 @@ kind: MonitoringConfiguration
 metadata:
   name: monitoringconfiguration-sample
 spec:
-  # Add fields here
-  foo: bar
+  name: testingCRD
+  apps:
+  - name: test
+    repo: test
+    chartName: test
+    chartVersion: test
+    namespace: test
+  last_modifier: asn

@@ -26,11 +26,11 @@ import (
 // MonitoringConfigurationSpec defines the desired state of MonitoringConfiguration
 type MonitoringConfigurationSpec struct {
 	//Defines the apps to be installed
-	Apps []App `json:"spec,apps"`
+	Apps []App `json:"apps"`
 	//Name of the monitoring configuration
 	Name string `json:"name"`
 	//Last modifier of the custom resource
-	LastModifier string `json:"last_modifier"`
+	LastModifier string `json:"last_modifier,omitempty"`
 	//Metadata of the MonitoringConfiguration
 	Metadata string `json:"metadata,omitempty"`
 }

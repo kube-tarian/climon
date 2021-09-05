@@ -13,8 +13,17 @@
 * Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
 
 
+## Guidelines
 
-#### **Did you fix whitespace, format code, or make a purely cosmetic patch?**
+We recommend discussing your plans on our Slack (join our [channel](https://soi-dev.slack.com/archives/C022EFUL0GH) before starting to code - especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give feedback on your design, and maybe point out if someone else is working on the same thing.
 
-Changes that are cosmetic in nature and do not add anything substantial to the stability, functionality, or testability of Rails will generally not be accepted.
+## Conventions
+
+Fork the repo and make the changes on your fork in a feature branch based on the master branch:
+
+- If it’s a bugfix branch, name it fix/XXX-something where XXX is the number of the issue
+- If it’s a feature branch, create an enhancement issue to announce your intentions, and name it feature/XXX-something where XXX is the number of the issue.
+- Submit unit tests for your changes. Go has a great test framework built in; use it! Take a look at existing tests for inspiration. Run the full test suite on your branch before submitting a pull request.
+- Make sure you include relevant updates or additions to documentation when creating or modifying features.
+- Write clean code. Universally formatted code promotes ease of writing, reading, and maintenance. Always run go fmt before committing your changes. Most editors have plugins that do this automatically.
 

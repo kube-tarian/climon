@@ -19,4 +19,4 @@ Climon's CRDs & Operators uses the operators/helm charts/yaml-files of the tools
 The Main purpose of Climon's CRDs & Operators is to make sure all the deployed tools are having automated https URLs and self-healing enabled and to configure Alerts & dashboards for the cherry picked tools via Climon's UI. 
 
 ### Architecture:
-![Arch. Diagram](https://raw.githubusercontent.com/devopstoday11/climon/main/Climon-Monitoring-stack-image.png)
+![Arch. Diagram](Climon-Monitoring-stack-image.png)

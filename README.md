@@ -1,6 +1,6 @@
 # Climon
 ##### Democratizing Monitoring & Observability technology for cloud-native environment. 
-Distributed monitoring solution for cloud-native with Authentication, Authorization, TLS, Users, Roles, Groups and Tenant management, Interfaces to setup & visualize alerts, Self-Healing, Self-Operating, and more using Prometheus, Grafana, Loki, Promtail, FluentBit, Tempo, Jaeger Tracing, Operator SDK, Cortex, Prometheus Operator, Prometheus Alert Manager, VictoriaMetrics, Netdata, EFK, Cloud Providers' Storage, Cassandra, openEBS, Longhorn, Rancher, K3s, Slack, MS Teams, BotKube, Mattermost, Email Notifications, Vault, Cert-Manager, Sealed-Secrets, Sysdig, Datadog, Opstrace, Crossplane, Tekton, Gitlab, ArgoCD, Argo Rollouts, FluxCD, Flagger, K6, Kuma, Kong API gateway, Istio, OIDC, oAuth2, SAML Keycloak, SSO, MFA, etc. 
+Distributed monitoring solution for cloud-native with Authentication, Authorization, TLS, Users, Roles, Groups and Tenant management, Interfaces to setup & visualize alerts, Self-Healing, Self-Operating, and more using Prometheus, Vizual, Grafana, Loki, Promtail, FluentBit, FluentD, Tempo, SigNoz, Jaeger Tracing, Operator SDK, Cortex, Prometheus Operator, Prometheus Alert Manager, VictoriaMetrics, Netdata, EFK, OpenSearch, Storj, Cloud Providers' Storage, Cassandra, ClickHouse, openEBS, Longhorn, Rancher, TalOS, K3s, Slack, MS Teams, BotKube, Mattermost, Email Notifications, Vault, Cert-Manager, Sealed-Secrets, Sysdig, Datadog, Opstrace, Crossplane, Tekton, Gitlab, ArgoCD, Argo Rollouts, FluxCD, Flagger, K6, Kuma, Istio, Linkerd, Kong API gateway, OIDC, oAuth2, SAML Keycloak, SSO, MFA, Hydra, Ketos, etc. 
 
 End-Users can cherry pick to build their favorite Monitoring Stack and maintain the stack easily. 
 
@@ -9,12 +9,12 @@ Yes, this will remain 100% open-source and driven by open-source community.
 #### What's with the name:
 Click Monitoring -> 1st three letters of both the words = CliMon (Climon). 
 And when we saw the meaning for the person name Climon we like it when we translate the meaning into technology relevant meaning. 
-Here is the reference babynology.com/name/climon-m.html . 
+Here is the reference, [CliMon name](https://www.babynology.com/name/climon-m.html). 
 
 ### Framework:
-Plug & Play is the main frame of Climon's design. 
-Climon's K8s CRDs & Operators are used to create, install, patch, update, upgrade and do operations management. 
-You need K8s cluster to run Climon and the monitoring stack you want using Climon. 
+Plug & Play is the main principle of Climon's design. 
+Climon's K8s CRDs & Operators are used to create, install, patch, update, upgrade and do operations management of CliMon. 
+You need K8s cluster to run Climon. 
 Climon's CRDs & Operators uses the operators/helm charts/yaml-files of the tools which users cherry pick to setup their favorite monitoring stack. 
 The Main purpose of Climon's CRDs & Operators is to make sure all the deployed tools are having automated https URLs and self-healing enabled and to configure Alerts & dashboards for the cherry picked tools via Climon's UI. 
 

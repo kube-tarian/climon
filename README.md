@@ -10,7 +10,8 @@ Yes, this will remain 100% open-source and driven by open-source community.
 Click Monitoring -> 1st three letters of both the words = CliMon (Climon). 
 And when we saw the meaning for the person name Climon we like it when we translate the meaning into technology relevant meaning. 
 Here is the reference, [CliMon name](https://www.babynology.com/name/climon-m.html). 
-Soi - French word, meaning "self". Opt for self-service framework. 
+
+Soi - French word, meaning "self" ; very opt for self-service framework. 
 
 ### Framework:
 Plug & Play is the main principle of Climon's design. 
